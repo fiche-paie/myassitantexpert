@@ -336,15 +336,8 @@ window.onload = function () {
                 } catch (error) {
                     console.error(error);
                     siretStatus.textContent = '⚠️ Service temporairement indisponible - Saisie manuelle requise';
-                }
             });
 
-</script>
-
-
-
-
-            
             // Génération du PDF
             window.genererPDF = function () {
                 if (!validateInputs()) return;
