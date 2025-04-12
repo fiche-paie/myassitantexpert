@@ -280,66 +280,65 @@ document.getElementById('nbEnfants').addEventListener('change', calculerTauxImpo
 
 <script>
 window.onload = function () {
-    // Configuration SIRET avec gestion d'erreur améliorée
-    const siretField = document.getElementById('siret');
-    const siretStatus = document.createElement('small');
-    siretStatus.style.display = 'block';
-    siretStatus.style.color = '#666';
-    siretField.parentNode.insertBefore(siretStatus, siretField.nextSibling);
 
-    siretField.addEventListener('blur', async function() {
-        const siret = this.value.replace(/\s/g, '');
-        siretStatus.textContent = 'Vérification du SIRET...';
-        
-        if (!/^\d{14}$/.test(siret)) {
-            siretStatus.innerHTML = '❌ Format SIRET invalide (14 chiffres requis)';
-            return;
-        }
+            // Gestion du SIRET
+            const siretField = document.getElementById('siret');
+            const siretStatus = document.getElementById('siretStatus');
+            siretField.addEventListener('blur', async function () {
+                const siret = this.value.replace(/\s/g, '');
+                siretStatus.textContent = 'Vérification du SIRET...';
 
-        try {
-            // Solution avec proxy CORS fiable et clé API valide
-            const response = await fetch(`https://api.allorigins.win/raw?url=${encodeURIComponent(
-                `https://api.insee.fr/entreprises/sirene/V3/siret/${siret}`
-            )}`, {
-                headers: { 
-                    'Authorization': 'Bearer 9b8e64f6-4e2a-48d7-bf0a-171a6415d6b4',
-                    'Accept': 'application/json'
+                if (!/^\d{14}$/.test(siret)) {
+                    siretStatus.textContent = '❌ SIRET invalide (14 chiffres requis)';
+                    return;
+                }
+
+                try {
+                    const apiUrls = [
+                        `https://cors-anywhere.herokuapp.com/https://entreprise.data.gouv.fr/api/sirene/v3/etablissements/${siret}`,
+                        `https://api.insee.fr/entreprises/sirene/V3/siret/${siret}`
+                    ];
+
+                    const response = await Promise.any(apiUrls.map(url =>
+                        fetch(url, {
+                            headers: { 'Authorization': 'Bearer VOTRE_NOUVELLE_CLE_API' }
+                        })
+                    ));
+
+                    if (!response.ok) throw new Error('API non disponible');
+
+                    const data = await response.json();
+
+                    let entreprise = {};
+                    if (data.etablissement) {
+                        const etab = data.etablissement;
+                        entreprise = {
+                            nom: etab.uniteLegale?.denominationUniteLegale || 'Nom non disponible',
+                            adresse: [
+                                etab.adresseEtablissement?.numeroVoieEtablissement,
+                                etab.adresseEtablissement?.typeVoieEtablissement,
+                                etab.adresseEtablissement?.libelleVoieEtablissement,
+                                etab.adresseEtablissement?.codePostalEtablissement,
+                                etab.adresseEtablissement?.libelleCommuneEtablissement
+                            ].filter(Boolean).join(' '),
+                            naf: etab.activitePrincipaleEtablissement
+                        };
+                    }
+
+                    if (entreprise.nom) {
+                        document.getElementById('nomEntreprise').value = entreprise.nom;
+                        document.getElementById('adresseEntreprise').value = entreprise.adresse;
+                        document.getElementById('codeNaf').value = entreprise.naf;
+                        siretStatus.textContent = '✅ Données récupérées avec succès';
+                    } else {
+                        throw new Error('Données incomplètes');
+                    }
+                } catch (error) {
+                    console.error(error);
+                    siretStatus.textContent = '⚠️ Service temporairement indisponible - Saisie manuelle requise';
                 }
             });
-            
-            if (!response.ok) throw new Error('API non disponible');
-            const data = await response.json();
 
-            // Vérification structure réponse
-            if (!data?.etablissement?.uniteLegale?.denominationUniteLegale) {
-                throw new Error('Structure de réponse invalide');
-            }
-
-            // Extraction des données
-            const etab = data.etablissement;
-            const adresse = [
-                etab.adresseEtablissement?.numeroVoieEtablissement,
-                etab.adresseEtablissement?.typeVoieEtablissement,
-                etab.adresseEtablissement?.libelleVoieEtablissement,
-                etab.adresseEtablissement?.codePostalEtablissement,
-                etab.adresseEtablissement?.libelleCommuneEtablissement
-            ].filter(Boolean).join(' ');
-
-            // Mise à jour des champs
-            document.getElementById('nomEntreprise').value = etab.uniteLegale.denominationUniteLegale;
-            document.getElementById('adresseEntreprise').value = adresse;
-            document.getElementById('codeNaf').value = etab.activitePrincipaleEtablissement;
-            siretStatus.innerHTML = '✅ Données récupérées avec succès';
-
-        } catch (error) {
-            console.error('Erreur SIRET:', error);
-            siretStatus.innerHTML = '⚠️ Service indisponible - Utilisez le mode manuel';
-            document.getElementById('nomEntreprise').focus();
-        }
-    });
-
-    // [Conserver le reste du code existant...]
-};
 </script>
 
 
