@@ -219,9 +219,13 @@ document.getElementById('nbEnfants').addEventListener('change', calculerTauxImpo
         <div class="apercu-net" id="apercuNetAPayer">Net à payer : 2259.90 €</div>
         <button id="toggleDarkMode">Activer/Désactiver Mode Sombre</button>
     </center></div>
-    <!-- Scripts placés à la fin du body -->
+
+
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+
+    
     <script>
         window.onload = function () {
             const { jsPDF } = window.jspdf;
@@ -273,6 +277,73 @@ document.getElementById('nbEnfants').addEventListener('change', calculerTauxImpo
                 return true;
             }
 
+
+
+
+            // Gestion du SIRET
+            const siretField = document.getElementById('siret');
+            const siretStatus = document.getElementById('siretStatus');
+            siretField.addEventListener('blur', async function () {
+                const siret = this.value.replace(/\s/g, '');
+                siretStatus.textContent = 'Vérification du SIRET...';
+
+                if (!/^\d{14}$/.test(siret)) {
+                    siretStatus.textContent = '❌ SIRET invalide (14 chiffres requis)';
+                    return;
+                }
+
+                try {
+                    const apiUrls = [
+                        `https://cors-anywhere.herokuapp.com/https://entreprise.data.gouv.fr/api/sirene/v3/etablissements/${siret}`,
+                        `https://api.insee.fr/entreprises/sirene/V3/siret/${siret}`
+                    ];
+
+                    const response = await Promise.any(apiUrls.map(url =>
+                        fetch(url, {
+                            headers: { 'Authorization': 'Bearer 9b8e64f6-4e2a-48d7-bf0a-171a6415d6b4' }
+                        })
+                    ));
+
+                    if (!response.ok) throw new Error('API non disponible');
+
+                    const data = await response.json();
+
+                    let entreprise = {};
+                    if (data.etablissement) {
+                        const etab = data.etablissement;
+                        entreprise = {
+                            nom: etab.uniteLegale?.denominationUniteLegale || 'Nom non disponible',
+                            adresse: [
+                                etab.adresseEtablissement?.numeroVoieEtablissement,
+                                etab.adresseEtablissement?.typeVoieEtablissement,
+                                etab.adresseEtablissement?.libelleVoieEtablissement,
+                                etab.adresseEtablissement?.codePostalEtablissement,
+                                etab.adresseEtablissement?.libelleCommuneEtablissement
+                            ].filter(Boolean).join(' '),
+                            naf: etab.activitePrincipaleEtablissement
+                        };
+                    }
+
+                    if (entreprise.nom) {
+                        document.getElementById('nomEntreprise').value = entreprise.nom;
+                        document.getElementById('adresseEntreprise').value = entreprise.adresse;
+                        document.getElementById('codeNaf').value = entreprise.naf;
+                        siretStatus.textContent = '✅ Données récupérées avec succès';
+                    } else {
+                        throw new Error('Données incomplètes');
+                    }
+                } catch (error) {
+                    console.error(error);
+                    siretStatus.textContent = '⚠️ Service temporairement indisponible - Saisie manuelle requise';
+                }
+            });
+
+
+
+
+
+
+            
             // Génération du PDF
             window.genererPDF = function () {
                 if (!validateInputs()) return;
