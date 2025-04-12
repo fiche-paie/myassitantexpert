@@ -278,67 +278,64 @@ document.getElementById('nbEnfants').addEventListener('change', calculerTauxImpo
             }
 
 
+siretField.addEventListener('blur', async function () {
+    const siret = this.value.replace(/\s/g, '');
+    siretStatus.textContent = 'Vérification du SIRET...';
 
+    // Validation du format du SIRET
+    if (!/^\d{14}$/.test(siret)) {
+        siretStatus.textContent = '❌ SIRET invalide (14 chiffres requis)';
+        return;
+    }
 
-            // Gestion du SIRET
-            const siretField = document.getElementById('siret');
-            const siretStatus = document.getElementById('siretStatus');
-            siretField.addEventListener('blur', async function () {
-                const siret = this.value.replace(/\s/g, '');
-                siretStatus.textContent = 'Vérification du SIRET...';
+    try {
+        // Liste des API à interroger
+        const apiUrls = [
+            `https://cors-anywhere.herokuapp.com/https://entreprise.data.gouv.fr/api/sirene/v3/etablissements/${siret}`,
+            `https://api.insee.fr/entreprises/sirene/V3/siret/${siret}`
+        ];
 
-                if (!/^\d{14}$/.test(siret)) {
-                    siretStatus.textContent = '❌ SIRET invalide (14 chiffres requis)';
-                    return;
-                }
+        // Tentative de récupération des données via Promise.any
+        const response = await Promise.any(apiUrls.map(url =>
+            fetch(url, {
+                headers: { 'Authorization': 'Bearer VOTRE_NOUVELLE_CLE_API' }
+            })
+        ));
 
-                try {
-                    const apiUrls = [
-                        `https://cors-anywhere.herokuapp.com/https://entreprise.data.gouv.fr/api/sirene/v3/etablissements/${siret}`,
-                        `https://api.insee.fr/entreprises/sirene/V3/siret/${siret}`
-                    ];
+        if (!response.ok) throw new Error('API non disponible');
 
-                    const response = await Promise.any(apiUrls.map(url =>
-                        fetch(url, {
-                            headers: { 'Authorization': 'Bearer 9b8e64f6-4e2a-48d7-bf0a-171a6415d6b4' }
-                        })
-                    ));
+        const data = await response.json();
 
-                    if (!response.ok) throw new Error('API non disponible');
+        // Extraction des données pertinentes
+        let entreprise = {};
+        if (data.etablissement) {
+            const etab = data.etablissement;
+            entreprise = {
+                nom: etab.uniteLegale?.denominationUniteLegale || 'Nom non disponible',
+                adresse: [
+                    etab.adresseEtablissement?.numeroVoieEtablissement,
+                    etab.adresseEtablissement?.typeVoieEtablissement,
+                    etab.adresseEtablissement?.libelleVoieEtablissement,
+                    etab.adresseEtablissement?.codePostalEtablissement,
+                    etab.adresseEtablissement?.libelleCommuneEtablissement
+                ].filter(Boolean).join(' '),
+                naf: etab.activitePrincipaleEtablissement
+            };
+        }
 
-                    const data = await response.json();
-
-                    let entreprise = {};
-                    if (data.etablissement) {
-                        const etab = data.etablissement;
-                        entreprise = {
-                            nom: etab.uniteLegale?.denominationUniteLegale || 'Nom non disponible',
-                            adresse: [
-                                etab.adresseEtablissement?.numeroVoieEtablissement,
-                                etab.adresseEtablissement?.typeVoieEtablissement,
-                                etab.adresseEtablissement?.libelleVoieEtablissement,
-                                etab.adresseEtablissement?.codePostalEtablissement,
-                                etab.adresseEtablissement?.libelleCommuneEtablissement
-                            ].filter(Boolean).join(' '),
-                            naf: etab.activitePrincipaleEtablissement
-                        };
-                    }
-
-                    if (entreprise.nom) {
-                        document.getElementById('nomEntreprise').value = entreprise.nom;
-                        document.getElementById('adresseEntreprise').value = entreprise.adresse;
-                        document.getElementById('codeNaf').value = entreprise.naf;
-                        siretStatus.textContent = '✅ Données récupérées avec succès';
-                    } else {
-                        throw new Error('Données incomplètes');
-                    }
-                } catch (error) {
-                    console.error(error);
-                    siretStatus.textContent = '⚠️ Service temporairement indisponible - Saisie manuelle requise';
-                }
-            });
-
-
+        if (entreprise.nom) {
+            document.getElementById('nomEntreprise').value = entreprise.nom;
+            document.getElementById('adresseEntreprise').value = entreprise.adresse;
+            document.getElementById('codeNaf').value = entreprise.naf;
+            siretStatus.textContent = '✅ Données récupérées avec succès';
+        } else {
+            throw new Error('Données incomplètes');
+        }
+    } catch (error) {
+        console.error(error);
+        siretStatus.textContent = '⚠️ Service temporairement indisponible - Saisie manuelle requise';
+    }
+});
 
 
 
