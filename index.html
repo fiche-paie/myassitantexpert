@@ -394,15 +394,15 @@ document.getElementById('nbEnfants').addEventListener('change', calculerTauxImpo
                     `Fax : ${faxEntreprise}`,
                     `Email : ${emailEntreprise}`
                 ];
-                const yEntrepriseStart = 21;
-                const yEntrepriseHeight = 33;
+                const yEntrepriseStart = 20;
+                const yEntrepriseHeight = 35;
                 doc.setFillColor(rgbColor.r, rgbColor.g, rgbColor.b);
                 doc.roundedRect(15, yEntrepriseStart, 80, yEntrepriseHeight, 3, 3, "F");
                 let yPositionEntreprise = yEntrepriseStart + (yEntrepriseHeight / 3) - ((infosEntreprise.length * 2) / 3);
                 infosEntreprise.forEach((line) => {
                     doc.setFontSize(9);
                     doc.setTextColor(0, 0, 0);
-                    doc.text(line, 20, yPositionEntreprise, { align: 'left' });
+                    doc.text(line, 25, yPositionEntreprise, { align: 'left' });
                     yPositionEntreprise += 4;
                 });
 
@@ -416,15 +416,15 @@ document.getElementById('nbEnfants').addEventListener('change', calculerTauxImpo
                     `Tel : ${telSalarie}`,
                     `Email : ${emailSalarie}`
                 ];
-                const ySalarieStart = 21;
-                const ySalarieHeight = 33;
+                const ySalarieStart = 20;
+                const ySalarieHeight = 35;
                 doc.setFillColor(rgbColor.r, rgbColor.g, rgbColor.b);
                 doc.roundedRect(115, ySalarieStart, 80, ySalarieHeight, 3, 3, "F");
                 let yPositionSalarie = ySalarieStart + (ySalarieHeight / 3) - ((infosSalarie.length * 2) / 3);
                 infosSalarie.forEach((line) => {
                     doc.setFontSize(9);
                     doc.setTextColor(0, 0, 0);
-                    doc.text(line, 120, yPositionSalarie, { align: 'left' });
+                    doc.text(line, 125, yPositionSalarie, { align: 'left' });
                     yPositionSalarie += 4;
                 });
 
