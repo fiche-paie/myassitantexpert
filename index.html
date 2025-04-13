@@ -382,7 +382,7 @@ document.getElementById('nbEnfants').addEventListener('change', calculerTauxImpo
                 // Titre centré en haut du PDF
                 doc.setFontSize(14);
                 doc.setTextColor(0, 0, 0);
-                doc.text("BULLETIN DE SALAIRE", 105, 16, { align: 'center' });
+                doc.text("BULLETIN DE SALAIRE", 105, 18, { align: 'center' });
 
                 // Informations entreprise
                 const infosEntreprise = [
@@ -394,15 +394,15 @@ document.getElementById('nbEnfants').addEventListener('change', calculerTauxImpo
                     `Fax : ${faxEntreprise}`,
                     `Email : ${emailEntreprise}`
                 ];
-                const yEntrepriseStart = 25;
-                const yEntrepriseHeight = 34;
+                const yEntrepriseStart = 24;
+                const yEntrepriseHeight = 33;
                 doc.setFillColor(rgbColor.r, rgbColor.g, rgbColor.b);
                 doc.roundedRect(15, yEntrepriseStart, 80, yEntrepriseHeight, 3, 3, "F");
                 let yPositionEntreprise = yEntrepriseStart + (yEntrepriseHeight / 3) - ((infosEntreprise.length * 2) / 3);
                 infosEntreprise.forEach((line) => {
                     doc.setFontSize(9);
                     doc.setTextColor(0, 0, 0);
-                    doc.text(line, 22, yPositionEntreprise, { align: 'left' });
+                    doc.text(line, 20, yPositionEntreprise, { align: 'left' });
                     yPositionEntreprise += 4;
                 });
 
@@ -416,15 +416,15 @@ document.getElementById('nbEnfants').addEventListener('change', calculerTauxImpo
                     `Tel : ${telSalarie}`,
                     `Email : ${emailSalarie}`
                 ];
-                const ySalarieStart = 25;
-                const ySalarieHeight = 34;
+                const ySalarieStart = 24;
+                const ySalarieHeight = 33;
                 doc.setFillColor(rgbColor.r, rgbColor.g, rgbColor.b);
                 doc.roundedRect(115, ySalarieStart, 80, ySalarieHeight, 3, 3, "F");
                 let yPositionSalarie = ySalarieStart + (ySalarieHeight / 3) - ((infosSalarie.length * 2) / 3);
                 infosSalarie.forEach((line) => {
                     doc.setFontSize(9);
                     doc.setTextColor(0, 0, 0);
-                    doc.text(line, 122, yPositionSalarie, { align: 'left' });
+                    doc.text(line, 120, yPositionSalarie, { align: 'left' });
                     yPositionSalarie += 4;
                 });
 
