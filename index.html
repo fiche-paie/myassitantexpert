@@ -639,7 +639,13 @@ document.getElementById('nbEnfants').addEventListener('change', calculerTauxImpo
     document.getElementById("siret").addEventListener("blur", remplirFormulaire);
 </script>
 
-    
+    <script>
+    // Désactiver le clic droit
+    document.addEventListener('contextmenu', function(event) {
+        event.preventDefault();
+        alert("Le clic droit est désactivé sur cette page.");
+    });
+</script>
 
 </body>
 
