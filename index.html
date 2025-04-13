@@ -394,7 +394,7 @@ document.getElementById('nbEnfants').addEventListener('change', calculerTauxImpo
                     `Fax : ${faxEntreprise}`,
                     `Email : ${emailEntreprise}`
                 ];
-                const yEntrepriseStart = 25;
+                const yEntrepriseStart = 24;
                 const yEntrepriseHeight = 34;
                 doc.setFillColor(rgbColor.r, rgbColor.g, rgbColor.b);
                 doc.roundedRect(15, yEntrepriseStart, 80, yEntrepriseHeight, 3, 3, "F");
@@ -416,7 +416,7 @@ document.getElementById('nbEnfants').addEventListener('change', calculerTauxImpo
                     `Tel : ${telSalarie}`,
                     `Email : ${emailSalarie}`
                 ];
-                const ySalarieStart = 25;
+                const ySalarieStart = 24;
                 const ySalarieHeight = 34;
                 doc.setFillColor(rgbColor.r, rgbColor.g, rgbColor.b);
                 doc.roundedRect(115, ySalarieStart, 80, ySalarieHeight, 3, 3, "F");
@@ -477,7 +477,7 @@ document.getElementById('nbEnfants').addEventListener('change', calculerTauxImpo
                 const columnWidths = [60, 15, 15, 25, 25, 30];
                 const totalTableWidth = columnWidths.reduce((a, b) => a + b, 0);
                 const startX = (210 - totalTableWidth) / 2;
-                const tableStartY = yPositionEntreprise + 25;
+                const tableStartY = yPositionEntreprise + 23;
 
                 // Ajout d'un rectangle pour l'en-tête du tableau centré
                 doc.setDrawColor(rgbColor.r, rgbColor.g, rgbColor.b);
