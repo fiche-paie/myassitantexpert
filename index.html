@@ -95,7 +95,8 @@
         }
       </style>
 </head>
- 
+  
+  
    <center><h2>Informations Entreprise</h2>
         <label for="nomEntreprise" class="required">Nom</label>
         <input type="text" id="nomEntreprise" value="SOCIETE RUE ANONYME">
@@ -271,44 +272,7 @@ document.getElementById('nbEnfants').addEventListener('change', calculerTauxImpo
                 }
                 return true;
             }
-    
-          
-          const siret = "1234567890002"; // Remplacez par le SIRET saisi
-const apiUrl = `https://entreprise.data.gouv.fr/api/sirene/v3/etablissements/${siret}`;
 
-fetch(apiUrl)
-    .then(response => {
-        if (!response.ok) throw new Error("API non disponible");
-        return response.json();
-    })
-    .then(data => {
-        const etab = data.etablissement;
-        const entreprise = {
-            nom: etab.uniteLegale?.denominationUniteLegale || "Nom non disponible",
-            adresse: [
-                etab.adresseEtablissement?.numeroVoieEtablissement,
-                etab.adresseEtablissement?.typeVoieEtablissement,
-                etab.adresseEtablissement?.libelleVoieEtablissement,
-                etab.adresseEtablissement?.codePostalEtablissement,
-                etab.adresseEtablissement?.libelleCommuneEtablissement
-            ].filter(Boolean).join(" "),
-            naf: etab.activitePrincipaleEtablissement || "Code NAF non disponible"
-        };
-
-        // Remplir les champs du formulaire
-        document.getElementById("nomEntreprise").value = entreprise.nom;
-        document.getElementById("adresseEntreprise").value = entreprise.adresse;
-        document.getElementById("codeNaf").value = entreprise.naf;
-        console.log("Données récupérées avec succès :", entreprise);
-    })
-    .catch(error => {
-        console.error("Erreur :", error);
-        alert("Service temporairement indisponible - Saisie manuelle requise");
-    });
-          
-          
-          
-          
             // Génération du PDF
             window.genererPDF = function () {
                 if (!validateInputs()) return;
