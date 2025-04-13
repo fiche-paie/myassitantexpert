@@ -7,6 +7,7 @@
         "fax": "01 23 45 67 90",
         "email": "contact@entreprise.com"
     },
+    
     "49997261000021": {
         "nom": "AUTRE ENTREPRISE",
         "adresse": "10 AVENUE DES CHAMPS, 69000 LYON",
@@ -32,6 +33,7 @@
         "fax": "04 78 92 56 35",
         "email": "accueil@boulangerie-centre.com"
     },
+    
     "87903214560013": {
         "nom": "AUTO RÉPARATION PROVENCE",
         "adresse": "130 CHEMIN DES OLIVIERS, 13008 MARSEILLE",
@@ -40,6 +42,7 @@
         "fax": "04 91 23 45 68",
         "email": "contact@autoprovencale.com"
     },
+    
     "45672318905550": {
         "nom": "CONSULTING DIGITAL PARIS",
         "adresse": "TOUR MONTPARNASSE, 75015 PARIS",
@@ -56,6 +59,7 @@
         "fax": "04 93 12 34 57",
         "email": "reservation@hotelbeaurivage.fr"
     },
+    
     "67890543211234": {
         "nom": "TRANSPORTS RAPIDES OUEST",
         "adresse": "ZAC DES LONGUES RIVES, 44000 NANTES",
@@ -64,6 +68,7 @@
         "fax": "02 40 12 34 57",
         "email": "logistique@transportsouest.fr"
     },
+    
     "98765432109876": {
         "nom": "PHARMACIE DES TERNES",
         "adresse": "78 AVENUE DES TERNES, 75017 PARIS",
@@ -72,6 +77,7 @@
         "fax": "01 47 63 98 53",
         "email": "pharmacie.ternes@gmail.com"
     },
+    
     "11223344556677": {
         "nom": "SARL CONSTRUCTIONS ATLANTIQUE",
         "adresse": "19 RUE DE LA GARE, 33000 BORDEAUX",
@@ -80,6 +86,8 @@
         "fax": "05 56 98 76 55",
         "email": "direction@construcatlantique.fr"
     },
+
+    
     "55443322110099": {
         "nom": "CAFÉ LITTÉRAIRE",
         "adresse": "5 PLACE DU CAPITOLE, 31000 TOULOUSE",
@@ -88,6 +96,7 @@
         "fax": "05 61 23 45 68",
         "email": "cafe.litteraire@orange.fr"
     },
+    
     "66778899001122": {
         "nom": "CENTRE ESTHÉTIQUE LUMIÈRE",
         "adresse": "45 RUE DU FAUBOURG SAINT-HONORÉ, 75008 PARIS",
