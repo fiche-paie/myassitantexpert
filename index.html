@@ -274,51 +274,6 @@ document.getElementById('nbEnfants').addEventListener('change', calculerTauxImpo
             }
 
 
-<script>
-    // Charger le fichier JSON
-    async function chargerDonneesEntreprises() {
-        const response = await fetch('entreprises.json');
-        if (!response.ok) {
-            throw new Error("Impossible de charger les données des entreprises.");
-        }
-        return await response.json();
-    }
-
-    // Fonction pour remplir les champs du formulaire
-    async function remplirFormulaire() {
-        const siretInput = document.getElementById("siret").value.trim();
-        if (!siretInput || siretInput.length !== 14) {
-            alert("Veuillez entrer un numéro SIRET valide (14 chiffres).");
-            return;
-        }
-
-        try {
-            const entreprises = await chargerDonneesEntreprises();
-            const societeData = entreprises[siretInput];
-
-            if (!societeData) {
-                alert("Aucune entreprise trouvée avec ce SIRET.");
-                return;
-            }
-
-            // Remplir les champs du formulaire
-            document.getElementById("nomEntreprise").value = societeData.nom;
-            document.getElementById("adresseEntreprise").value = societeData.adresse;
-            document.getElementById("codeNaf").value = societeData.codeNaf;
-            document.getElementById("telEntreprise").value = societeData.tel;
-            document.getElementById("faxEntreprise").value = societeData.fax || "";
-            document.getElementById("emailEntreprise").value = societeData.email;
-
-            alert("Les informations de l'entreprise ont été récupérées avec succès !");
-        } catch (error) {
-            console.error("Erreur:", error);
-            alert("Une erreur est survenue lors de la récupération des données.");
-        }
-    }
-
-    // Ajouter un événement sur le champ SIRET
-    document.getElementById("siret").addEventListener("blur", remplirFormulaire);
-</script>
 
 
 
@@ -636,6 +591,58 @@ document.getElementById('nbEnfants').addEventListener('change', calculerTauxImpo
             });
         };
     </script>
+
+<script>
+    // Charger le fichier JSON
+    async function chargerDonneesEntreprises() {
+        const response = await fetch('entreprises.json');
+        if (!response.ok) {
+            throw new Error("Impossible de charger les données des entreprises.");
+        }
+        return await response.json();
+    }
+
+    // Fonction pour remplir les champs du formulaire
+    async function remplirFormulaire() {
+        const siretInput = document.getElementById("siret").value.trim();
+        if (!siretInput || siretInput.length !== 14) {
+            alert("Veuillez entrer un numéro SIRET valide (14 chiffres).");
+            return;
+        }
+
+        try {
+            const entreprises = await chargerDonneesEntreprises();
+            const societeData = entreprises[siretInput];
+
+            if (!societeData) {
+                alert("Aucune entreprise trouvée avec ce SIRET.");
+                return;
+            }
+
+            // Remplir les champs du formulaire
+            document.getElementById("nomEntreprise").value = societeData.nom;
+            document.getElementById("adresseEntreprise").value = societeData.adresse;
+            document.getElementById("codeNaf").value = societeData.codeNaf;
+            document.getElementById("telEntreprise").value = societeData.tel;
+            document.getElementById("faxEntreprise").value = societeData.fax || "";
+            document.getElementById("emailEntreprise").value = societeData.email;
+
+            alert("Les informations de l'entreprise ont été récupérées avec succès !");
+        } catch (error) {
+            console.error("Erreur:", error);
+            alert("Une erreur est survenue lors de la récupération des données.");
+        }
+    }
+
+    // Ajouter un événement sur le champ SIRET
+    document.getElementById("siret").addEventListener("blur", remplirFormulaire);
+</script>
+
+
+
+
+
+    
 
 </body></html>
 
