@@ -1,98 +1,92 @@
 {
-    "12345678900002": {
+    "1234567890001": {
+        "nom": "Apple France",
+        "adresse": "1 Rue de la Boétie, 75008 Paris",
+        "siret": "1234567890001",
+        "codeNaf": "4651Z",
+        "tel": "01 47 20 59 78",
+        "fax": "",
+        "email": "contact@apple.com"
+    },
+    "1234567890002": {
         "nom": "SOCIETE RUE ANONYME",
-        "adresse": "77 RUE DE LA POUPE, 75000 PARIS",
+        "adresse": "4 Rue de la Paix, 75000 Paris",
+        "siret": "1234567890002",
         "codeNaf": "6202A",
-        "tel": "01 23 45 67 77",
-        "fax": "01 23 45 67 77",
+        "tel": "01 23 45 67 89",
+        "fax": "01 23 45 67 90",
         "email": "contact@entreprise.com"
     },
-    "49997261000020": {
-        "nom": "AUTRE ENTREPRISE",
-        "adresse": "77 AVENUE DES CHAMPS, 69000 LYON",
-        "codeNaf": "5229B",
-        "tel": "04 56 78 90 12",
-        "fax": "04 56 78 90 00",
-        "email": "contact@autreentreprise.com"
+    "1234567890003": {
+        "nom": "LVMH Moët Hennessy Louis Vuitton",
+        "adresse": "22 Avenue Montaigne, 75008 Paris",
+        "siret": "1234567890003",
+        "codeNaf": "4778C",
+        "tel": "01 40 10 00 00",
+        "fax": "",
+        "email": "info@lvmh.com"
     },
-    "12345678900002": {
-        "nom": "TECHNOLOGIES FUTURISTES FRANCE",
-        "adresse": "15 AVENUE DES CHAMPS-ÉLYSÉES, 75008 PARIS",
-        "codeNaf": "6201Z",
-        "tel": "01 76 85 43 21",
-        "fax": "01 76 85 43 20",
-        "email": "contact@techfutur.fr"
+    "1234567890004": {
+        "nom": "Airbus SAS",
+        "adresse": "1 Rond-Point Maurice Bellonte, 31700 Blagnac",
+        "siret": "1234567890004",
+        "codeNaf": "3030Z",
+        "tel": "05 61 93 93 93",
+        "fax": "",
+        "email": "contact@airbus.com"
     },
-    "53421987003145": {
-        "nom": "BOULANGERIE DU CENTRE",
-        "adresse": "22 RUE DE LA RÉPUBLIQUE, 69002 LYON",
-        "codeNaf": "1071C",
-        "tel": "04 78 92 56 34",
-        "fax": "04 78 92 56 35",
-        "email": "accueil@boulangerie-centre.com"
+    "1234567890005": {
+        "nom": "Renault SAS",
+        "adresse": "13-15 Quai du Point du Jour, 92100 Boulogne-Billancourt",
+        "siret": "1234567890005",
+        "codeNaf": "2910Z",
+        "tel": "01 76 84 60 00",
+        "fax": "",
+        "email": "info@renault.com"
     },
-    "87903214560013": {
-        "nom": "AUTO RÉPARATION PROVENCE",
-        "adresse": "130 CHEMIN DES OLIVIERS, 13008 MARSEILLE",
-        "codeNaf": "4520A",
-        "tel": "04 91 23 45 67",
-        "fax": "04 91 23 45 68",
-        "email": "contact@autoprovencale.com"
+    "1234567890006": {
+        "nom": "Orange S.A.",
+        "adresse": "78 Rue Olivier de Serres, 75015 Paris",
+        "siret": "1234567890006",
+        "codeNaf": "6110Z",
+        "tel": "3900",
+        "fax": "",
+        "email": "contact@orange.com"
     },
-    "45672318905550": {
-        "nom": "CONSULTING DIGITAL PARIS",
-        "adresse": "TOUR MONTPARNASSE, 75015 PARIS",
-        "codeNaf": "7022Z",
-        "tel": "01 45 67 89 00",
-        "fax": "01 45 67 89 01",
-        "email": "info@cdp-paris.fr"
+    "1234567890007": {
+        "nom": "L'Oréal S.A.",
+        "adresse": "14 Rue Royale, 75008 Paris",
+        "siret": "1234567890007",
+        "codeNaf": "2016Z",
+        "tel": "01 47 56 70 00",
+        "fax": "",
+        "email": "information@loreal.fr"
     },
-    "23451768903216": {
-        "nom": "HÔTEL BEAU RIVAGE",
-        "adresse": "17 PROMENADE DES ANGLAIS, 06000 NICE",
-        "codeNaf": "5510Z",
-        "tel": "04 93 12 34 56",
-        "fax": "04 93 12 34 57",
-        "email": "reservation@hotelbeaurivage.fr"
+    "1234567890008": {
+        "nom": "TotalEnergies SE",
+        "adresse": "2 Place Jean Millier, 92078 Paris La Défense",
+        "siret": "1234567890008",
+        "codeNaf": "0610Z",
+        "tel": "01 47 44 45 46",
+        "fax": "",
+        "email": "contact@totalenergies.com"
     },
-    "67890543211234": {
-        "nom": "TRANSPORTS RAPIDES OUEST",
-        "adresse": "ZAC DES LONGUES RIVES, 44000 NANTES",
-        "codeNaf": "4941A",
-        "tel": "02 40 12 34 56",
-        "fax": "02 40 12 34 57",
-        "email": "logistique@transportsouest.fr"
+    "1234567890009": {
+        "nom": "Carrefour S.A.",
+        "adresse": "1 Rue Jean Mermoz, 92380 Garches",
+        "siret": "1234567890009",
+        "codeNaf": "4711F",
+        "tel": "01 41 29 60 00",
+        "fax": "",
+        "email": "service.client@carrefour.com"
     },
-    "98765432109876": {
-        "nom": "PHARMACIE DES TERNES",
-        "adresse": "78 AVENUE DES TERNES, 75017 PARIS",
-        "codeNaf": "4773Z",
-        "tel": "01 47 63 98 52",
-        "fax": "01 47 63 98 53",
-        "email": "pharmacie.ternes@gmail.com"
-    },
-    "11223344556677": {
-        "nom": "SARL CONSTRUCTIONS ATLANTIQUE",
-        "adresse": "19 RUE DE LA GARE, 33000 BORDEAUX",
-        "codeNaf": "4120A",
-        "tel": "05 56 98 76 54",
-        "fax": "05 56 98 76 55",
-        "email": "direction@construcatlantique.fr"
-    },
-    "55443322110099": {
-        "nom": "CAFÉ LITTÉRAIRE",
-        "adresse": "5 PLACE DU CAPITOLE, 31000 TOULOUSE",
-        "codeNaf": "5630Z",
-        "tel": "05 61 23 45 67",
-        "fax": "05 61 23 45 68",
-        "email": "cafe.litteraire@orange.fr"
-    },
-    "66778899001122": {
-        "nom": "CENTRE ESTHÉTIQUE LUMIÈRE",
-        "adresse": "45 RUE DU FAUBOURG SAINT-HONORÉ, 75008 PARIS",
-        "codeNaf": "9602A",
-        "tel": "01 53 76 98 09",
-        "fax": "01 53 76 98 10",
-        "email": "contact@esthetique-lumiere.com"
+    "1234567890010": {
+        "nom": "BNP Paribas S.A.",
+        "adresse": "16 Boulevard des Italiens, 75009 Paris",
+        "siret": "1234567890010",
+        "codeNaf": "6419Z",
+        "tel": "01 42 98 12 34",
+        "fax": "",
+        "email": "contact@bnpparibas.com"
     }
 }
