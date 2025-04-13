@@ -23,7 +23,7 @@
             color: #e53e3e;
         }
         input, select {
-            width: 80%;
+            width: 90%;
             padding: 8px;
             margin-bottom: 10px;
             border: 1px solid #cbd5e0;
@@ -45,7 +45,7 @@
             font-size: 16px;
             margin-top: 20px;
             display: block;
-            width: 65%;
+            width: 80%;
             transition: background-color 0.3s;
         }
         button:hover {
@@ -158,8 +158,8 @@
         </div>
           <div>
                <!-- Ajoutez ce bouton après le champ tauxImpot -->
-<center><button type="button" onclick="calculerTauxImpot()" style="margin-top: 7px; width: 200px;  width: 65%;">
- Calculer taux d'imposition
+<center><button type="button" onclick="calculerTauxImpot()" style="margin-top: 7px; width: 200px;  width: 80%;">
+ Calculer imposition
 </button>
 <small id="helpImpot" style="display:block; margin-top:6px; color:#666;">Estimé sur un brut annuel de 28719.60 € (1 part) — Impôt total estimé : 1600.79 €</small>
 
@@ -215,9 +215,9 @@ document.getElementById('nbEnfants').addEventListener('change', calculerTauxImpo
 </script>
 
   </center></div>
-        <button onclick="genererPDF()">Générer la fiche de paie</button>
+        <button onclick="genererPDF()">Générer paie</button>
         <div class="apercu-net" id="apercuNetAPayer">Net à payer : 2259.90 €</div>
-        <button id="toggleDarkMode">Activer/Désactiver Mode Sombre</button>
+        <button id="toggleDarkMode">Mode Sombre</button>
     </center></div>
     <!-- Scripts placés à la fin du body -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
