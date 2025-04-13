@@ -271,9 +271,9 @@ document.getElementById('nbEnfants').addEventListener('change', calculerTauxImpo
                 }
                 return true;
             }
+    
           
-          
-          const siret = "722 003 936 01421"; // Remplacez par le SIRET saisi
+          const siret = "1234567890002"; // Remplacez par le SIRET saisi
 const apiUrl = `https://entreprise.data.gouv.fr/api/sirene/v3/etablissements/${siret}`;
 
 fetch(apiUrl)
