@@ -364,25 +364,41 @@ document.getElementById('nbEnfants').addEventListener('change', calculerTauxImpo
                     cotisations.salariales.csgNonDeductible += (SMIC_NET_MENSUEL - netAPayer);
                 }
 
-                // Création du PDF
-                const doc = new jsPDF();
-                const rgbColor = hexToRgb(couleurTheme);
+             // Création du PDF
+            const doc = new jsPDF();
+            const rgbColor = hexToRgb(couleurTheme);
 
-                // Ajouter un encadrement avec des coins arrondis et une couleur dynamique
-                const marginX = 10;
-                const marginY = 10;
-                const pageWidth = 210 - 2 * marginX;
-                const pageHeight = 297 - 2 * marginY;
-                const borderRadius = 5;
-                const lineWidth = 0.25;
-                doc.setDrawColor(rgbColor.r, rgbColor.g, rgbColor.b);
-                doc.setLineWidth(lineWidth);
-                doc.roundedRect(marginX, marginY, pageWidth, pageHeight, borderRadius, borderRadius);
+            // Ajouter un encadrement avec des coins arrondis et une couleur dynamique
+            const marginX = 10;
+            const marginY = 10;
+            const pageWidth = 210 - 2 * marginX;
+            const pageHeight = 297 - 2 * marginY;
+            const borderRadius = 5;
+            const lineWidth = 0.25;
+            doc.setDrawColor(rgbColor.r, rgbColor.g, rgbColor.b);
+            doc.setLineWidth(lineWidth);
+            doc.roundedRect(marginX, marginY, pageWidth, pageHeight, borderRadius, borderRadius);
 
-                // Titre centré en haut du PDF
-                doc.setFontSize(14);
-                doc.setTextColor(0, 0, 0);
-                doc.text("BULLETIN DE SALAIRE", 105, 18, { align: 'center' });
+            // Titre centré en haut du PDF avec logo
+            doc.setFontSize(14);
+            doc.setTextColor(0, 0, 0);
+
+          
+      // Logo intégré
+            const logoUrl = "https://i.ibb.co/xt29fGV3/téléchargement-removebg-preview.png";
+          
+            const imgWidth = 20; // Largeur de l'image
+            const imgHeight = 10; // Hauteur de l'image
+            const imgX = 40; // Position X de l'image
+            const textX = 130; // Position X du texte
+
+            try {
+                doc.addImage(logoUrl, 'JPEG', imgX, 13, imgWidth, imgHeight); // Ajoute l'image
+                doc.text("BULLETIN DE SALAIRE", textX, 18, { align: 'left' }); // Texte aligné à gauche
+            } catch (error) {
+                console.warn("Impossible de charger le logo:", error);
+                doc.text("BULLETIN DE SALAIRE", 105, 18, { align: 'center' }); // Fallback si image non chargée
+            }
 
                 // Informations entreprise
                 const infosEntreprise = [
