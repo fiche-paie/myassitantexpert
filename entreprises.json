@@ -16,3 +16,85 @@
         "email": "contact@autreentreprise.com"
     }
 }
+{
+    "12345678900002": {
+        "nom": "TECHNOLOGIES FUTURISTES FRANCE",
+        "adresse": "15 AVENUE DES CHAMPS-ÉLYSÉES, 75008 PARIS",
+        "codeNaf": "6201Z",
+        "tel": "01 76 85 43 21",
+        "fax": "01 76 85 43 20",
+        "email": "contact@techfutur.fr"
+    },
+    "53421987003145": {
+        "nom": "BOULANGERIE DU CENTRE",
+        "adresse": "22 RUE DE LA RÉPUBLIQUE, 69002 LYON",
+        "codeNaf": "1071C",
+        "tel": "04 78 92 56 34",
+        "fax": "04 78 92 56 35",
+        "email": "accueil@boulangerie-centre.com"
+    },
+    "87903214560013": {
+        "nom": "AUTO RÉPARATION PROVENCE",
+        "adresse": "130 CHEMIN DES OLIVIERS, 13008 MARSEILLE",
+        "codeNaf": "4520A",
+        "tel": "04 91 23 45 67",
+        "fax": "04 91 23 45 68",
+        "email": "contact@autoprovencale.com"
+    },
+    "45672318905550": {
+        "nom": "CONSULTING DIGITAL PARIS",
+        "adresse": "TOUR MONTPARNASSE, 75015 PARIS",
+        "codeNaf": "7022Z",
+        "tel": "01 45 67 89 00",
+        "fax": "01 45 67 89 01",
+        "email": "info@cdp-paris.fr"
+    },
+    "23451768903216": {
+        "nom": "HÔTEL BEAU RIVAGE",
+        "adresse": "17 PROMENADE DES ANGLAIS, 06000 NICE",
+        "codeNaf": "5510Z",
+        "tel": "04 93 12 34 56",
+        "fax": "04 93 12 34 57",
+        "email": "reservation@hotelbeaurivage.fr"
+    },
+    "67890543211234": {
+        "nom": "TRANSPORTS RAPIDES OUEST",
+        "adresse": "ZAC DES LONGUES RIVES, 44000 NANTES",
+        "codeNaf": "4941A",
+        "tel": "02 40 12 34 56",
+        "fax": "02 40 12 34 57",
+        "email": "logistique@transportsouest.fr"
+    },
+    "98765432109876": {
+        "nom": "PHARMACIE DES TERNES",
+        "adresse": "78 AVENUE DES TERNES, 75017 PARIS",
+        "codeNaf": "4773Z",
+        "tel": "01 47 63 98 52",
+        "fax": "01 47 63 98 53",
+        "email": "pharmacie.ternes@gmail.com"
+    },
+    "11223344556677": {
+        "nom": "SARL CONSTRUCTIONS ATLANTIQUE",
+        "adresse": "19 RUE DE LA GARE, 33000 BORDEAUX",
+        "codeNaf": "4120A",
+        "tel": "05 56 98 76 54",
+        "fax": "05 56 98 76 55",
+        "email": "direction@construcatlantique.fr"
+    },
+    "55443322110099": {
+        "nom": "CAFÉ LITTÉRAIRE",
+        "adresse": "5 PLACE DU CAPITOLE, 31000 TOULOUSE",
+        "codeNaf": "5630Z",
+        "tel": "05 61 23 45 67",
+        "fax": "05 61 23 45 68",
+        "email": "cafe.litteraire@orange.fr"
+    },
+    "66778899001122": {
+        "nom": "CENTRE ESTHÉTIQUE LUMIÈRE",
+        "adresse": "45 RUE DU FAUBOURG SAINT-HONORÉ, 75008 PARIS",
+        "codeNaf": "9602A",
+        "tel": "01 53 76 98 09",
+        "fax": "01 53 76 98 10",
+        "email": "contact@esthetique-lumiere.com"
+    }
+}
