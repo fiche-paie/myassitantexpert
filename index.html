@@ -40,7 +40,7 @@
             background: #2b6cb0;
             color: white;
             border: none;
-            border-radius: 50px;
+            border-radius: 7px;
             cursor: pointer;
             font-size: 15px;
             margin-top: 15px;
@@ -165,9 +165,9 @@
         </div></center>  
           <div>
                <!-- Ajoutez ce bouton après le champ tauxImpot -->
-<button type="button" onclick="calculerTauxImpot()" style="margin-top: 7px; width: 200px;  width: 80%;">
+<center></center><button type="button" onclick="calculerTauxImpot()" style="margin-top: 7px; width: 200px;  width: 70%;">
  Calculer imposition
-</button>
+<center></center></button>
 <small id="helpImpot" style="display:block; margin-top:6px; color:#666;">Estimé sur un brut annuel de 28719.60 € (1 part) — Impôt total estimé : 1600.79 €</small>
 
 <script>
@@ -279,10 +279,6 @@ document.getElementById('nbEnfants').addEventListener('change', calculerTauxImpo
                 }
                 return true;
             }
-
-
-
-
 
             
             // Génération du PDF
