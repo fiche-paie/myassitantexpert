@@ -119,6 +119,14 @@
         <label for="emailEntreprise" class="required">Email</label>
         <input type="email" id="emailEntreprise" value="">
 
+    
+ <label for="logo">Logo (URL ou chemin local):</label>
+    <input type="file" id="logo" accept="image/*">
+    <img id="logoPreview" src="#" alt="Logo Preview" style="display:none; max-width:100px; margin-top:10px;">
+
+
+
+    
         <h2>Informations Salarié</h2>
         <label for="nomSalarie" class="required">Nom</label>
         <input type="text" id="nomSalarie" value="JEROME DUBOIS">
@@ -387,8 +395,8 @@ document.getElementById('nbEnfants').addEventListener('change', calculerTauxImpo
       // Logo intégré
             const logoUrl = "https://i.ibb.co/xt29fGV3/téléchargement-removebg-preview.png";
           
-            const imgWidth = 20; // Largeur de l'image
-            const imgHeight = 10; // Hauteur de l'image
+            const imgWidth = 18; // Largeur de l'image
+            const imgHeight = 9; // Hauteur de l'image
             const imgX = 40; // Position X de l'image
             const textX = 130; // Position X du texte
 
