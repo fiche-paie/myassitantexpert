@@ -395,7 +395,7 @@ document.getElementById('nbEnfants').addEventListener('change', calculerTauxImpo
                     `Email : ${emailEntreprise}`
                 ];
                 const yEntrepriseStart = 21;
-                const yEntrepriseHeight = 32;
+                const yEntrepriseHeight = 34;
                 doc.setFillColor(rgbColor.r, rgbColor.g, rgbColor.b);
                 doc.roundedRect(15, yEntrepriseStart, 80, yEntrepriseHeight, 3, 3, "F");
                 let yPositionEntreprise = yEntrepriseStart + (yEntrepriseHeight / 3) - ((infosEntreprise.length * 2) / 3);
@@ -417,7 +417,7 @@ document.getElementById('nbEnfants').addEventListener('change', calculerTauxImpo
                     `Email : ${emailSalarie}`
                 ];
                 const ySalarieStart = 21;
-                const ySalarieHeight = 32;
+                const ySalarieHeight = 34;
                 doc.setFillColor(rgbColor.r, rgbColor.g, rgbColor.b);
                 doc.roundedRect(115, ySalarieStart, 80, ySalarieHeight, 3, 3, "F");
                 let yPositionSalarie = ySalarieStart + (ySalarieHeight / 3) - ((infosSalarie.length * 2) / 3);
